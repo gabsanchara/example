@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Тестовый сайт</title>
+  <style>
+    * { box-sizing: border-box; margin: 0; padding: 0; }
+    body {
+      min-height: 100vh;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-family: system-ui, -apple-system, "Segoe UI", sans-serif;
+      background: linear-gradient(135deg, #667eea, #764ba2, #f093fb);
+      background-size: 300% 300%;
+      animation: bg 12s ease infinite;
+      color: #fff;
+      text-align: center;
+      padding: 20px;
+    }
+    @keyframes bg {
+      0% { background-position: 0% 50%; }
+      50% { background-position: 100% 50%; }
+      100% { background-position: 0% 50%; }
+    }
+    .card {
+      background: rgba(255, 255, 255, 0.15);
+      backdrop-filter: blur(12px);
+      border: 1px solid rgba(255, 255, 255, 0.3);
+      border-radius: 24px;
+      padding: 48px 40px;
+      max-width: 520px;
+      box-shadow: 0 20px 50px rgba(0, 0, 0, 0.25);
+    }
+    .emoji { font-size: 64px; display: inline-block; animation: bounce 2s infinite; }
+    @keyframes bounce {
+      0%, 100% { transform: translateY(0); }
+      50% { transform: translateY(-14px); }
+    }
+    h1 { margin: 16px 0 12px; font-size: 2rem; }
+    p { font-size: 1.1rem; line-height: 1.5; opacity: 0.95; }
+    button {
+      margin-top: 24px;
+      padding: 12px 28px;
+      font-size: 1rem;
+      font-weight: 600;
+      border: none;
+      border-radius: 999px;
+      background: #fff;
+      color: #764ba2;
+      cursor: pointer;
+      transition: transform 0.15s;
+    }
+    button:hover { transform: scale(1.06); }
+    #counter { margin-top: 16px; font-size: 0.95rem; opacity: 0.85; }
+  </style>
+</head>
+<body>
+  <div class="card">
+    <div class="emoji">🧪</div>
+    <h1>Это тестовый сайт</h1>
+    <p>Пробная страница, созданная чисто по приколу. Если ты это видишь — GitHub Pages работает! 🎉</p>
+    <button id="btn">Нажми меня</button>
+    <div id="counter">Нажатий: 0</div>
+  </div>
+  <script>
+    let n = 0;
+    const messages = ["Ура, работает!", "Ещё разок?", "Ты настойчив 😄", "Всё ещё тест...", "Хватит, это просто проба!"];
+    document.getElementById("btn").addEventListener("click", () => {
+      n++;
+      document.getElementById("counter").textContent =
+        "Нажатий: " + n + " — " + messages[(n - 1) % messages.length];
+    });
+  </script>
+</body>
+</html>
